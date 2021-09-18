@@ -156,7 +156,7 @@ function gameOver() {
       overlayEl.querySelector('p').textContent = 'Computer Won';
       speech('game over. computer won. do you want to play again?');
     }
-  }, 1500);
+  }, 3000);
 }
 
 function speech(text) {
