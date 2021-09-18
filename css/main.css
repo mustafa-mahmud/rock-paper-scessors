@@ -11,6 +11,21 @@ body {
   background-image: -webkit-gradient(linear, left top, right top, from(#4d5656), to(#ecf0f1));
   background-image: linear-gradient(to right, #4d5656, #ecf0f1);
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
 }
 
 .info {
@@ -64,12 +79,17 @@ body {
   border: 5px solid black;
   -webkit-filter: blur(1px);
           filter: blur(1px);
+  -webkit-transition: all .2s;
+  transition: all .2s;
 }
 
 .container img.active {
   -webkit-filter: blur(0);
           filter: blur(0);
   background-color: #f00;
+  border-color: #f00;
+  -webkit-box-shadow: 2px 5px 5px rgba(22, 13, 13, 0.8);
+          box-shadow: 2px 5px 5px rgba(22, 13, 13, 0.8);
 }
 
 .container p {
@@ -86,6 +106,14 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.container .img-container.active {
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
+  background-color: #777;
 }
 
 .container .player {
@@ -100,4 +128,42 @@ body {
 .container .computer {
   text-align: center;
   width: 20rem;
+}
+
+.container .computer img {
+  cursor: none;
+  pointer-events: none;
+}
+
+.overlay {
+  position: fixed;
+  background-color: rgba(22, 13, 13, 0.8);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.overlay p {
+  font-size: 5rem;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.overlay button {
+  padding: 1.5rem 3rem;
+  font-size: 2rem;
+  cursor: pointer;
 }

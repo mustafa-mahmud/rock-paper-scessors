@@ -10,6 +10,12 @@ html {
 body {
 	background-image: linear-gradient(to right, #4d5656, #ecf0f1);
 	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-width: 100vw;
+	min-height: 100vh;
 }
 
 .info {
@@ -57,11 +63,14 @@ body {
 		cursor: pointer;
 		border: 5px solid black;
 		filter: blur(1px);
+		transition: all .2s;
 	}
 
 	img.active {
 		filter: blur(0);
 		background-color: #f00;
+		border-color: #f00;
+		box-shadow: 2px 5px 5px rgba(22, 13, 13, 0.8);
 	}
 
 	p {
@@ -73,6 +82,12 @@ body {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
+		transition: all 0.2s;
+	}
+
+	.img-container.active {
+		box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
+		background-color: #777;
 	}
 
 	.player {
@@ -87,5 +102,36 @@ body {
 	.computer {
 		text-align: center;
 		width: 20rem;
+
+		img {
+			cursor: none;
+			pointer-events: none;
+		}
+	}
+}
+
+.overlay {
+	position: fixed;
+	background-color: rgba(22, 13, 13, 0.8);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	p {
+		font-size: 5rem;
+		color: #fff;
+		margin-bottom: 2rem;
+	}
+
+	button {
+		padding: 1.5rem 3rem;
+		font-size: 2rem;
+		cursor: pointer;
 	}
 }
