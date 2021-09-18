@@ -12,7 +12,7 @@ const overlayEl = document.querySelector('.overlay');
 const againPlayBtn = overlayEl.querySelector('button');
 const imgContainer = document.querySelectorAll('.img-container');
 
-const maxTurn = 5;
+const maxTurn = 3;
 let left = 0;
 let turn = 0;
 let playerScore = 0;
@@ -84,6 +84,8 @@ function choosingItem() {
 }
 
 function ckWinner() {
+  rand = [];
+
   const imgPlr = Array.from(imgPlayer).find((img) =>
     img.classList.contains('active')
   );
@@ -146,7 +148,6 @@ function draw() {
 
 function gameOver() {
   makeCursorNone();
-  overlayEl.style.display = 'flex';
   overlayEl.querySelector('p').textContent = '';
   setTimeout(() => {
     if (playerScore > computerScore) {
@@ -156,7 +157,11 @@ function gameOver() {
       overlayEl.querySelector('p').textContent = 'Computer Won';
       speech('game over. computer won. do you want to play again?');
     }
-  }, 3000);
+
+    setTimeout(() => {
+      overlayEl.style.display = 'flex';
+    }, 4000);
+  }, 2000);
 }
 
 function speech(text) {
