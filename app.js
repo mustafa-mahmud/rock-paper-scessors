@@ -12,7 +12,7 @@ const overlayEl = document.querySelector('.overlay');
 const againPlayBtn = overlayEl.querySelector('button');
 const imgContainer = document.querySelectorAll('.img-container');
 
-const maxTurn = 3;
+const maxTurn = 5;
 let left = 0;
 let turn = 0;
 let playerScore = 0;
